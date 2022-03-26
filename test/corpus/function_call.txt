@@ -1,0 +1,123 @@
+================================================================================
+function call
+================================================================================
+
+stdlib::ensure($ensure, 'file')
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (function_call
+    (function
+      (name)
+      (name))
+    (variable
+      (identifier
+        (name)))
+    (string
+      (string_content))))
+
+================================================================================
+function call method
+================================================================================
+
+$foo.join('_')
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (method_chain
+    (variable
+      (identifier
+        (name)))
+    (operator)
+    (method_call
+      (function
+        (name))
+      (string
+        (string_content)))))
+
+================================================================================
+function call with lambda
+================================================================================
+each($binaries) |$binary| { }
+--------------------------------------------------------------------------------
+
+(manifest
+  (function_call
+    (function
+      (name))
+    (variable
+      (identifier
+        (name)))
+    (lambda
+      (variable
+        (identifier
+          (name)))
+      (body))))
+
+================================================================================
+function call with interpolation
+================================================================================
+
+warning("Module foo not tested against ${operatingsystem}")
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (function_call
+    (function
+      (name))
+    (string
+      (string_content)
+      (interpolation
+        (variable
+          (identifier
+            (name)))))))
+
+================================================================================
+function call with Type
+================================================================================
+
+lookup('val', String, undef, [])
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (function_call
+    (function
+      (name))
+    (string
+      (string_content))
+    (type
+      (reference_identifier
+        (name)))
+    (undef)
+    (array)))
+
+================================================================================
+function call function method chain
+================================================================================
+
+lookup('classes').join('_').include
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (method_chain
+    (method_chain
+      (function_call
+        (function
+          (name))
+        (string
+          (string_content)))
+      (operator)
+      (method_call
+        (function
+          (name))
+        (string
+          (string_content))))
+    (operator)
+    (method_call
+      (function
+        (name)))))

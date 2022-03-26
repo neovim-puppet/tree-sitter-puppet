@@ -1,0 +1,59 @@
+================================================================================
+expression boolean or
+================================================================================
+
+true or false
+--------------------------------------------------------------------------------
+    (manifest
+      (binary
+        (true)
+        (operator)
+        (false)))
+====
+expression boolean equals
+====
+
+'foo' == 'bar'
+----
+    (manifest
+      (binary
+        (string
+          (string_content))
+        (operator)
+        (string
+          (string_content))))
+
+====
+expression boolean in
+====
+'Solaris' in ['Linux', 'Solaris']
+----
+    (manifest
+      (binary
+        (string
+          (string_content))
+        (operator)
+        (array
+          (string
+            (string_content))
+          (string
+            (string_content)))))
+====
+expression boolean numeric
+=====
+90 < 7
+----
+    (manifest
+      (binary
+        (integer)
+        (operator)
+        (integer)))
+====
+expression boolean unary
+====
+
+!true
+----
+    (manifest
+      (unary
+        (true)))

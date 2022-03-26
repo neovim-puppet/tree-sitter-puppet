@@ -1,0 +1,123 @@
+================================================================================
+resource collectors simple
+================================================================================
+
+Foo::Bar <||>
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (operator)))
+
+================================================================================
+resource collectors simple exported
+================================================================================
+Foo::Bar <<||>>
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (exported_resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (operator)))
+
+================================================================================
+resource collectors with condition
+================================================================================
+
+Foo::Bar <| $i > 123 |>
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (binary
+      (variable
+        (identifier
+          (name)))
+      (operator)
+      (integer))
+    (operator)))
+
+================================================================================
+resource collectors exported with condition
+================================================================================
+
+Foo::Bar <<| tag == 'foo' |>>
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (exported_resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (binary
+      (unprotected_string)
+      (operator)
+      (string
+        (string_content)))
+    (operator)))
+
+================================================================================
+resource collectors with arguments
+================================================================================
+
+Foo::Bar <| |> {
+  ensure => present,
+}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (operator)
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (unprotected_string))))))
+
+================================================================================
+resource collectors exported with arguments
+================================================================================
+
+Foo::Bar <<| |>> {
+  ensure => present
+}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (exported_resource_collector
+    (reference_identifier
+      (name)
+      (name))
+    (operator)
+    (operator)
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (unprotected_string))))))

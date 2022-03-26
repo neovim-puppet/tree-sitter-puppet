@@ -1,0 +1,112 @@
+================================================================================
+resource declaration basic class
+================================================================================
+
+class myclass{}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (body)))
+
+================================================================================
+resource declaration basic type
+================================================================================
+
+define myresource (){}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list)
+    (body)))
+
+================================================================================
+resource declaration basic plan
+================================================================================
+
+plan foo::bar {}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name)
+      (name))
+    (body)))
+
+================================================================================
+resource declaration basic
+================================================================================
+
+class mypackage::myclass (){}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name)
+      (name))
+    (parameter_list)
+    (body)))
+
+================================================================================
+resource declaration  with inheritance
+================================================================================
+
+class myclass () inherits myclass::params { }
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list)
+    (inheritance
+      (identifier
+        (name)
+        (name)))
+    (body)))
+
+================================================================================
+resource declaration with parameters
+================================================================================
+
+
+class foo (
+  String $foo,
+  String $bar = 'asdf',
+){}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name)))
+        (variable
+          (identifier
+            (name))))
+      (parameter
+        (type
+          (reference_identifier
+            (name)))
+        (variable
+          (identifier
+            (name)))
+        (string
+          (string_content))))
+    (body)))

@@ -1,0 +1,199 @@
+================================================================================
+resource usage
+================================================================================
+
+package {'ntp':}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_call
+    (identifier
+      (name))
+    (resource_title
+      (string_content))))
+
+================================================================================
+resource usage with arguments
+================================================================================
+
+package { 'ntp':
+  ensure => 'installed',
+  foo    => 'bar',
+}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_call
+    (identifier
+      (name))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content))))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))))
+
+================================================================================
+resource usage with require
+================================================================================
+
+foo { 'bar':
+  * => $_foo,
+  require => Group['asdf']
+}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_call
+    (identifier
+      (name))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name)
+        (operator)
+        (argument_value
+          (variable
+            (name))))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (reference
+            (identifier
+              (name))
+            (string
+              (string_content))))))))
+
+================================================================================
+resource usage with multiple items
+================================================================================
+
+user {
+  'alice':
+    uid   => 1001,
+    home  => '/home/alice',
+  ;
+  'bob':
+    uid   => 1002,
+    home  => '/home/bob',
+  ;
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_call
+    (identifier
+      (name))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (integer)))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (integer)))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))))
+
+================================================================================
+resource usage with multiple items and default
+================================================================================
+
+user {
+  'alice':
+    uid   => 1001,
+    home  => '/home/alice',
+  ;
+  'bob':
+    uid   => 1002,
+    home  => '/home/bob',
+  ;
+  default:
+    groups => 'users'
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_call
+    (identifier
+      (name))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (integer)))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))
+    (resource_title
+      (string_content))
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (integer)))
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))
+    (resource_title)
+    (argument_list
+      (argument
+        (argument_name
+          (unprotected_string))
+        (operator)
+        (argument_value
+          (string
+            (string_content)))))))

@@ -1,0 +1,112 @@
+================================================================================
+types simple
+================================================================================
+class f (
+  Boolean $bool = false,
+) {}
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name)))
+        (variable
+          (identifier
+            (name)))
+        (false)))
+    (body)))
+
+================================================================================
+types optional
+================================================================================
+class f (
+  Optional[Boolean] $bool,
+) {}
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name))
+          (type
+            (reference_identifier
+              (name))))
+        (variable
+          (identifier
+            (name)))))
+    (body)))
+
+================================================================================
+types optional enum
+================================================================================
+
+class foo(
+  Optional[Enum['default', 'foo', 'bar']] $optional_enum_string = undef,
+){ }
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name))
+          (type
+            (reference_identifier
+              (name))
+            (string
+              (string_content))
+            (string
+              (string_content))
+            (string
+              (string_content))))
+        (variable
+          (identifier
+            (name)))
+        (undef)))
+    (body)))
+
+================================================================================
+types optional variant
+================================================================================
+
+class foo(
+  Variant[Undef,String] $fancy_optional_string = undef,
+){ }
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name))
+          (type
+            (reference_identifier
+              (name)))
+          (type
+            (reference_identifier
+              (name))))
+        (variable
+          (identifier
+            (name)))
+        (undef)))
+    (body)))

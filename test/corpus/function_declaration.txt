@@ -1,0 +1,26 @@
+================================================================================
+function declaration
+================================================================================
+
+function foo::bar(String $foo) >> Boolean {
+
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (function_declaration
+    (identifier
+      (name)
+      (name))
+    (parameter_list
+      (parameter
+        (type
+          (reference_identifier
+            (name)))
+        (variable
+          (identifier
+            (name)))))
+    (type
+      (reference_identifier
+        (name)))
+    (body)))

@@ -1,0 +1,30 @@
+{
+  "name": "tree-sitter-puppet",
+  "version": "0.0.1",
+  "description": "A Treesitter parser for puppet",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "parser",
+    "lexer",
+    "puppet"
+  ],
+  "author": "Moritz Kraus",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.puppet",
+      "file-types": [
+        "pp"
+      ]
+    }
+  ]
+}

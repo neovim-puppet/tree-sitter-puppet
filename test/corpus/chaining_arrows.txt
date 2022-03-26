@@ -1,0 +1,97 @@
+================================================================================
+chaining arrows resources
+================================================================================
+
+class{'before':} -> class{'after':}
+--------------------------------------------------------------------------------
+
+(manifest
+  (relation
+    (chain_element
+      (resource_call
+        (identifier)
+        (resource_title
+          (string_content))))
+    (chaining_arrow)
+    (chain_element
+      (resource_call
+        (identifier)
+        (resource_title
+          (string_content))))))
+
+================================================================================
+chaining arrows resource and reference
+================================================================================
+class{'before':} -> Class['after']
+--------------------------------------------------------------------------------
+
+(manifest
+  (relation
+    (chain_element
+      (resource_call
+        (identifier)
+        (resource_title
+          (string_content))))
+    (chaining_arrow)
+    (chain_element
+      (reference
+        (identifier
+          (name))
+        (string
+          (string_content))))))
+
+================================================================================
+chaining arrows three resources
+================================================================================
+
+Package['ntp'] -> File['/etc/ntp.conf'] ~> Service['ntpd']
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (relation
+    (chain_element
+      (relation
+        (chain_element
+          (reference
+            (identifier
+              (name))
+            (string
+              (string_content))))
+        (chaining_arrow)
+        (chain_element
+          (reference
+            (identifier
+              (name))
+            (string
+              (string_content))))))
+    (chaining_arrow)
+    (chain_element
+      (reference
+        (identifier
+          (name))
+        (string
+          (string_content))))))
+
+================================================================================
+chaining arrows with collector
+================================================================================
+Package['ntp'] -> Ntp::Node <||>
+--------------------------------------------------------------------------------
+
+(manifest
+  (relation
+    (chain_element
+      (reference
+        (identifier
+          (name))
+        (string
+          (string_content))))
+    (chaining_arrow)
+    (chain_element
+      (resource_collector
+        (reference_identifier
+          (name)
+          (name))
+        (operator)
+        (operator)))))

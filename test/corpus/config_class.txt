@@ -1,0 +1,115 @@
+================================================================================
+config class
+================================================================================
+
+class foo::config {
+
+  #Setting File defaults:
+  File {
+    mode  => '0644',
+    owner => $foo::user,
+    group => $foo::group,
+  }
+
+  file { $foo::config_filepath:
+    ensure  => file,
+    content => template('foo/foo.conf.erb'),
+  }
+
+  file { $foo::root_dir:
+    ensure  => directory,
+    mode    => '0644',
+    recurse => false,
+  }
+
+}
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (resource_declaration
+    (identifier
+      (name)
+      (name))
+    (body
+      (comment)
+      (resource_defaults
+        (resource_type
+          (name))
+        (argument_list
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (string
+                (string_content))))
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (variable
+                (identifier
+                  (name)
+                  (name)))))
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (variable
+                (identifier
+                  (name)
+                  (name)))))))
+      (resource_call
+        (identifier
+          (name))
+        (resource_title
+          (identifier
+            (name)
+            (name)))
+        (argument_list
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (unprotected_string)))
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (function_call
+                (function
+                  (name))
+                (string
+                  (string_content)))))))
+      (resource_call
+        (identifier
+          (name))
+        (resource_title
+          (identifier
+            (name)
+            (name)))
+        (argument_list
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (unprotected_string)))
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (string
+                (string_content))))
+          (argument
+            (argument_name
+              (unprotected_string))
+            (operator)
+            (argument_value
+              (false))))))))

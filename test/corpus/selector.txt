@@ -1,0 +1,35 @@
+================================================================================
+selector
+================================================================================
+$rootgroup = $facts ? {
+  'Redhat'                    => 'wheel',
+  /(Debian|Ubuntu)/           => 'wheel',
+  default                     => 'root',
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (assignment
+    (variable
+      (identifier
+        (name)))
+    (operator)
+    (selector
+      (variable
+        (identifier
+          (name)))
+      (selector_item
+        (key
+          (string
+            (string_content)))
+        (string
+          (string_content)))
+      (selector_item
+        (key
+          (regex))
+        (string
+          (string_content)))
+      (selector_item
+        (default)
+        (string
+          (string_content))))))

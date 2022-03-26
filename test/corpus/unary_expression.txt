@@ -1,0 +1,33 @@
+================================================================================
+unary
+================================================================================
+
+$foo = *$asdf
+$bar = -$asdf
+!$asdf
+
+--------------------------------------------------------------------------------
+
+(manifest
+  (assignment
+    (variable
+      (identifier
+        (name)))
+    (operator)
+    (unary
+      (variable
+        (identifier
+          (name)))))
+  (assignment
+    (variable
+      (identifier
+        (name)))
+    (operator)
+    (unary
+      (variable
+        (identifier
+          (name)))))
+  (unary
+    (variable
+      (identifier
+        (name)))))

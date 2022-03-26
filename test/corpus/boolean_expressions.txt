@@ -1,0 +1,31 @@
+================================================================================
+boolean expressions
+================================================================================
+
+1 in [1,2,3]
+
+true and false
+
+((true and 1) and false)
+--------------------------------------------------------------------------------
+
+(manifest
+  (binary
+    (integer)
+    (operator)
+    (array
+      (integer)
+      (integer)
+      (integer)))
+  (binary
+    (true)
+    (operator)
+    (false))
+  (expression_group
+    (command_binary
+      (expression_group
+        (binary
+          (true)
+          (operator)
+          (integer)))
+      (false))))

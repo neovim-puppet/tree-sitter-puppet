@@ -1,0 +1,45 @@
+================================================================================
+case
+================================================================================
+
+case $os {
+    'RedHat', 'CentOS':  {
+         include role::redhat
+    }
+    /^(Debian|Ubuntu)$/:  {
+         include role::debian
+    }
+    default:  {
+         include role::generic
+    }
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (case
+    (variable
+      (identifier
+        (name)))
+    (case_item
+      (string
+        (string_content))
+      (string
+        (string_content))
+      (body
+        (include
+          (identifier
+            (name)
+            (name)))))
+    (case_item
+      (regex)
+      (body
+        (include
+          (identifier
+            (name)
+            (name)))))
+    (case_default
+      (body
+        (include
+          (identifier
+            (name)
+            (name)))))))

@@ -1,0 +1,84 @@
+================================================================================
+type declaration enumeration
+================================================================================
+
+type Ensure = Enum['present', 'absent']
+--------------------------------------------------------------------------------
+
+(manifest
+  (type_declaration
+    (type_identifier
+      (name))
+    (operator)
+    (type
+      (reference_identifier
+        (name))
+      (string
+        (string_content))
+      (string
+        (string_content)))))
+
+================================================================================
+type declaration pattern
+================================================================================
+
+type Foo::Bar = Pattern[ /^foo|bar$/ ]
+--------------------------------------------------------------------------------
+
+(manifest
+  (type_declaration
+    (type_identifier
+      (name)
+      (name))
+    (operator)
+    (type
+      (reference_identifier
+        (name))
+      (regex))))
+
+================================================================================
+type declaration variant
+================================================================================
+
+type Compose = Variant[String,Integer]
+--------------------------------------------------------------------------------
+
+(manifest
+  (type_declaration
+    (type_identifier
+      (name))
+    (operator)
+    (type
+      (reference_identifier
+        (name))
+      (type
+        (reference_identifier
+          (name)))
+      (type
+        (reference_identifier
+          (name))))))
+
+================================================================================
+type declaration nested
+================================================================================
+
+type Nested = Optional[Enum['default', 'foo', 'bar']]
+--------------------------------------------------------------------------------
+
+(manifest
+  (type_declaration
+    (type_identifier
+      (name))
+    (operator)
+    (type
+      (reference_identifier
+        (name))
+      (type
+        (reference_identifier
+          (name))
+        (string
+          (string_content))
+        (string
+          (string_content))
+        (string
+          (string_content))))))
