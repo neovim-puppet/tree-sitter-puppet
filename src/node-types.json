@@ -109,6 +109,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -208,6 +212,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -304,6 +312,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -410,6 +422,10 @@
             "named": true
           },
           {
+            "type": "heredoc",
+            "named": true
+          },
+          {
             "type": "integer",
             "named": true
           },
@@ -501,6 +517,10 @@
           },
           {
             "type": "hash",
+            "named": true
+          },
+          {
+            "type": "heredoc",
             "named": true
           },
           {
@@ -627,6 +647,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -781,6 +805,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -896,6 +924,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -1030,6 +1062,10 @@
             "named": true
           },
           {
+            "type": "heredoc",
+            "named": true
+          },
+          {
             "type": "integer",
             "named": true
           },
@@ -1138,6 +1174,10 @@
             "named": true
           },
           {
+            "type": "heredoc",
+            "named": true
+          },
+          {
             "type": "integer",
             "named": true
           },
@@ -1235,6 +1275,10 @@
           },
           {
             "type": "hash",
+            "named": true
+          },
+          {
+            "type": "heredoc",
             "named": true
           },
           {
@@ -1438,6 +1482,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -1546,6 +1594,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -1650,6 +1702,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -1768,6 +1824,10 @@
           },
           {
             "type": "hash",
+            "named": true
+          },
+          {
+            "type": "heredoc",
             "named": true
           },
           {
@@ -1931,6 +1991,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -1976,6 +2040,44 @@
         },
         {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "heredoc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "heredoc_body",
+          "named": true
+        },
+        {
+          "type": "heredoc_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "heredoc_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         }
       ]
@@ -2073,6 +2175,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -2225,6 +2331,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -2325,6 +2435,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -2470,6 +2584,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -2620,6 +2738,10 @@
             "named": true
           },
           {
+            "type": "heredoc",
+            "named": true
+          },
+          {
             "type": "integer",
             "named": true
           },
@@ -2735,6 +2857,10 @@
           },
           {
             "type": "hash",
+            "named": true
+          },
+          {
+            "type": "heredoc",
             "named": true
           },
           {
@@ -2880,6 +3006,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -2995,6 +3125,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -3210,6 +3344,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -3367,6 +3505,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -3497,6 +3639,10 @@
           "named": true
         },
         {
+          "type": "heredoc",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -3601,6 +3747,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -3818,6 +3968,10 @@
             "named": true
           },
           {
+            "type": "heredoc",
+            "named": true
+          },
+          {
             "type": "integer",
             "named": true
           },
@@ -3941,6 +4095,10 @@
         },
         {
           "type": "hash",
+          "named": true
+        },
+        {
+          "type": "heredoc",
           "named": true
         },
         {
@@ -4099,6 +4257,10 @@
     "named": false
   },
   {
+    "type": "@(",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -4165,6 +4327,10 @@
   {
     "type": "function",
     "named": false
+  },
+  {
+    "type": "heredoc_start",
+    "named": true
   },
   {
     "type": "if",

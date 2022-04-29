@@ -29,6 +29,7 @@ module.exports = grammar({
     $.comment,
     /\n/,
     /\s/,
+    /\r/,
   ],
 
   conflicts: $ => [
@@ -36,6 +37,11 @@ module.exports = grammar({
     [$.identifier],
   ],
 
+  externals: $ => [
+    $.heredoc_start,
+    $._heredoc_body_start,
+    $._heredoc_body_end,
+  ],
 
   rules: {
     manifest: $ => repeat(
@@ -496,6 +502,7 @@ module.exports = grammar({
       $.reference,
       $.element_reference,
       $.method_chain,
+      $.heredoc,
     )),
 
     _literals: $=> prec(PREC.LITERALS, choice(
@@ -597,6 +604,25 @@ module.exports = grammar({
       '/',
       /[^/]*/,
       '/',
+    ),
+
+    heredoc: $ => seq(
+      '@(',
+      $.heredoc_start,
+      ')',
+      $.heredoc_body,
+    ),
+
+    heredoc_body: $=> choice(
+      $._heredoc_body_end,
+      seq(
+        repeat(choice(
+          $._heredoc_body_start,
+          $.interpolation,
+          $.escape_sequence,
+        )),
+        $._heredoc_body_end
+      )
     ),
 
     comment: $ => /#.*/,

@@ -2766,6 +2766,10 @@
           {
             "type": "SYMBOL",
             "name": "method_chain"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "heredoc"
           }
         ]
       }
@@ -3141,6 +3145,65 @@
         }
       ]
     },
+    "heredoc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "heredoc_start"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "heredoc_body"
+        }
+      ]
+    },
+    "heredoc_body": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_heredoc_body_end"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_heredoc_body_start"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "interpolation"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "escape_sequence"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_heredoc_body_end"
+            }
+          ]
+        }
+      ]
+    },
     "comment": {
       "type": "PATTERN",
       "value": "#.*"
@@ -3158,6 +3221,10 @@
     {
       "type": "PATTERN",
       "value": "\\s"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\r"
     }
   ],
   "conflicts": [
@@ -3170,7 +3237,20 @@
     ]
   ],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "heredoc_start"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_heredoc_body_start"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_heredoc_body_end"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }
