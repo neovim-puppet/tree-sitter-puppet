@@ -121,3 +121,15 @@ lookup('classes').join('_').include
     (method_call
       (function
         (name)))))
+---
+===
+function call with types
+===
+
+assert_type(Variant[Integer, Hash[String, Integer]], $foo)
+---
+===
+function call method chain with body
+===
+$foo.filter |$val| { $val =~ NotUndef }
+---
