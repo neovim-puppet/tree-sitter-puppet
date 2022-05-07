@@ -20,6 +20,7 @@ const PREC = {
   LITERALS: -5,
   VALUE: -1,
   SELECTOR: 20,
+  IDENTIFIER: 2,
 };
 
 module.exports = grammar({
@@ -433,15 +434,13 @@ module.exports = grammar({
       seq('_', $.name),
     ),
 
-    identifier: $ => seq(
-      optional('::'),
-      repeat1(
-        choice(
-          token.immediate('::'),
-          $.name,
-        ),
-      ),
-    ),
+    identifier: $ => prec.right(PREC.IDENTIFIER ,seq(
+        optional(choice(
+          '::',
+          seq(choice($.name, $.identifier), token.immediate('::')),
+        )),
+        $.name,
+    )),
 
     reference_identifier: $ => prec.left(seq(
       optional('::'),
@@ -565,7 +564,6 @@ module.exports = grammar({
       choice(
         alias(
           seq(
-            optional(alias('::', $.top)),
             $._variable_name,
             optional($._element_identifier)
           ),

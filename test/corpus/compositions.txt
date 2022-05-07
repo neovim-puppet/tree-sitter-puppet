@@ -8,7 +8,8 @@ include ::base::linux
 (manifest
   (include
     (identifier
-      (name)
+      (identifier
+        (name))
       (name))))
 
 ================================================================================
@@ -55,15 +56,17 @@ include $my_classes
         (name)))))
 
 ================================================================================
-compositions contain
+compositions contain keyword
 ================================================================================
 
-contain ::test::asdf::bar
+contain ::test::class::bar
 --------------------------------------------------------------------------------
 
 (manifest
   (contain
     (identifier
-      (name)
-      (name)
+      (identifier
+        (identifier
+          (name))
+        (name))
       (name))))

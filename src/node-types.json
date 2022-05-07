@@ -1761,8 +1761,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
         {
           "type": "name",
           "named": true
@@ -2092,6 +2096,10 @@
       "required": false,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         }
@@ -2356,10 +2364,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "top",
           "named": true
         },
         {
@@ -4387,10 +4391,6 @@
   {
     "type": "t",
     "named": false
-  },
-  {
-    "type": "top",
-    "named": true
   },
   {
     "type": "true",
