@@ -2431,59 +2431,40 @@
       ]
     },
     "identifier": {
-      "type": "PREC_RIGHT",
-      "value": 2,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "::"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
             "type": "CHOICE",
             "members": [
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "::"
-                  },
-                  {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "name"
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "identifier"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "IMMEDIATE_TOKEN",
-                        "content": {
-                          "type": "STRING",
-                          "value": "::"
-                        }
-                      }
-                    ]
-                  }
-                ]
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "::"
+                }
               },
               {
-                "type": "BLANK"
+                "type": "SYMBOL",
+                "name": "name"
               }
             ]
-          },
-          {
-            "type": "SYMBOL",
-            "name": "name"
           }
-        ]
-      }
+        }
+      ]
     },
     "reference_identifier": {
       "type": "PREC_LEFT",
@@ -3004,7 +2985,7 @@
     },
     "_string_content_single": {
       "type": "PATTERN",
-      "value": "[^'\\\\]+"
+      "value": "[^']+"
     },
     "interpolation": {
       "type": "SEQ",
@@ -3021,6 +3002,23 @@
               "content": {
                 "type": "SEQ",
                 "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "STRING",
+                          "value": "::"
+                        },
+                        "named": true,
+                        "value": "top"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  },
                   {
                     "type": "SYMBOL",
                     "name": "_variable_name"
