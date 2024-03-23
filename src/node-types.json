@@ -3786,6 +3786,10 @@
           "named": true
         },
         {
+          "type": "type",
+          "named": true
+        },
+        {
           "type": "unary",
           "named": true
         },

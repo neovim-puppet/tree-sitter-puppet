@@ -125,7 +125,7 @@ module.exports = grammar({
     )),
 
     selector_item: $ => seq(
-      choice($.default, alias($._expression, $.key)),
+      choice($.default, alias($._expression, $.key), $.type),
       '=>',
       $._value,
     ),
