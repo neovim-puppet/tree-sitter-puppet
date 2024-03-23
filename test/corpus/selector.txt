@@ -33,3 +33,59 @@ $rootgroup = $facts ? {
         (default)
         (string
           (string_content))))))
+
+================================================================================
+selector with data types
+================================================================================
+$enable_real = $enable ? {
+  Boolean => $enable,
+  String  => str2bool($enable),
+  Numeric => num2bool($enable),
+  default => fail('Illegal value for $enable parameter'),
+}
+--------------------------------------------------------------------------------
+
+(manifest
+  (assignment
+    (variable
+      (identifier
+	(name)))
+    (operator)
+    (selector
+      (variable
+	(identifier
+	  (name)))
+      (selector_item
+	(type
+	  (reference_identifier
+	    (name)))
+	(variable
+	  (identifier
+	    (name))))
+      (selector_item
+	(type
+	  (reference_identifier
+	    (name)))
+	(function_call
+	  (function
+	    (name))
+	  (variable
+	    (identifier
+	      (name)))))
+      (selector_item
+	(type
+	  (reference_identifier
+	    (name)))
+	(function_call
+	  (function
+	    (name))
+	  (variable
+	    (identifier
+	      (name)))))
+      (selector_item
+	(default)
+	(function_call
+	  (function
+	    (name))
+	  (string
+	    (string_content)))))))
